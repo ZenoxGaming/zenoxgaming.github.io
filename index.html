@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zenox — Profile</title>
+  <meta name="description" content="Zenox — Content Creator & Streamer" />
+  <style>
+    :root{
+      --bg:#0b0f14;--card:#0f1720;--muted:#9aa6b2;--accent1:#7c5cff;--accent2:#00d4ff;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#050608 0%, #07101a 100%);color:#e6eef6}
+    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:36px}
+    .card{width:100%;max-width:760px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    .hero{position:relative;padding:36px 28px 28px;display:flex;gap:20px;align-items:center}
+    .banner{position:absolute;inset:0;height:120px;background:linear-gradient(90deg,var(--accent1),var(--accent2));filter:blur(24px);opacity:0.16}
+    .avatar{width:110px;height:110px;border-radius:18px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:44px;color:white;box-shadow:0 6px 18px rgba(124,92,255,0.18);position:relative;z-index:2}
+    .info{z-index:2}
+    h1{margin:0;font-size:28px;letter-spacing:0.6px}
+    p.bio{margin:6px 0 0;color:var(--muted);max-width:520px}
+    .links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:20px 28px 36px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:var(--glass);color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,0.03);transition:transform .14s ease,background .14s}
+    .btn:hover{transform:translateY(-4px);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+    .btn .icon{width:20px;height:20px;display:inline-grid;place-items:center;opacity:0.95}
+    .small{font-size:13px;color:var(--muted)}
+    .footer{padding:14px 28px 28px;color:var(--muted);font-size:13px}
+    .copy{cursor:pointer}
+    @media (max-width:560px){.hero{flex-direction:column;align-items:flex-start}.avatar{width:96px;height:96px}.links{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main" aria-labelledby="zenox-name">
+      <div class="hero">
+        <div class="banner" aria-hidden="true"></div>
+        <div class="avatar" id="avatar">Z</div>
+        <div class="info">
+          <h1 id="zenox-name">Zenox</h1>
+          <p class="bio" id="bio">Content Creator & Streamer — Gaming, edits and chill streams. New videos every week.</p>
+          <p class="small">Links & socials</p>
+        </div>
+      </div>
+
+      <section class="links" aria-label="Social links">
+        <a class="btn" href="https://youtube.com/@zenox" target="_blank" rel="noopener noreferrer">
+          <span class="icon">▶️</span>
+          <div>
+            <div><strong>YouTube</strong></div>
+            <div class="small">Subscribe for videos</div>
+          </div>
+        </a>
+
+        <a class="btn" href="https://twitch.tv/zenox" target="_blank" rel="noopener noreferrer">
+          <span class="icon">🔴</span>
+          <div>
+            <div><strong>Twitch</strong></div>
+            <div class="small">Live streams</div>
+          </div>
+        </a>
+
+        <a class="btn" href="https://discord.gg/your-invite" target="_blank" rel="noopener noreferrer">
+          <span class="icon">💬</span>
+          <div>
+            <div><strong>Discord</strong></div>
+            <div class="small">Join the community</div>
+          </div>
+        </a>
+
+        <a class="btn" href="https://instagram.com/zenox" target="_blank" rel="noopener noreferrer">
+          <span class="icon">📸</span>
+          <div>
+            <div><strong>Instagram</strong></div>
+            <div class="small">Shorts & Stories</div>
+          </div>
+        </a>
+
+        <a class="btn" href="#" id="copyLink" title="Copy profile link">
+          <span class="icon">🔗</span>
+          <div>
+            <div><strong>Copy profile link</strong></div>
+            <div class="small">Share Zenox</div>
+          </div>
+        </a>
+
+        <a class="btn" href="#download" id="downloadBtn" title="Download HTML">
+          <span class="icon">⬇️</span>
+          <div>
+            <div><strong>Download .html</strong></div>
+            <div class="small">Save a copy</div>
+          </div>
+        </a>
+      </section>
+
+      <div class="footer">Made for <strong>Zenox</strong>. To edit: replace placeholders (links, bio, avatar initial). Save file as <code>zenox.html</code> and open in your browser.</div>
+    </main>
+  </div>
+
+  <script>
+    // Copy profile link
+    document.getElementById('copyLink').addEventListener('click', function(e){
+      e.preventDefault();
+      const url = location.href;
+      navigator.clipboard?.writeText(url).then(()=>{
+        this.querySelector('.small').textContent = 'Copied!';
+        setTimeout(()=> this.querySelector('.small').textContent = 'Share Zenox', 1600);
+      }).catch(()=>{
+        alert('Copy failed — use manual link.');
+      });
+    });
+
+    // Download the HTML content
+    document.getElementById('downloadBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      const html = '<!doctype html>' + '\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], {type: 'text/html'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'zenox.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  </script>
+</body>
+</html>
