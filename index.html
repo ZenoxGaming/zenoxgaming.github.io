@@ -1,128 +1,619 @@
-<!doctype html>
-<html lang="hu">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Zenox — Profile</title>
-  <meta name="description" content="Zenox — Content Creator & Streamer" />
-  <style>
-    :root{
-      --bg:#0b0f14;--card:#0f1720;--muted:#9aa6b2;--accent1:#7c5cff;--accent2:#00d4ff;
-      --glass: rgba(255,255,255,0.03);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#050608 0%, #07101a 100%);color:#e6eef6}
-    .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:36px}
-    .card{width:100%;max-width:760px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
-    .hero{position:relative;padding:36px 28px 28px;display:flex;gap:20px;align-items:center}
-    .banner{position:absolute;inset:0;height:120px;background:linear-gradient(90deg,var(--accent1),var(--accent2));filter:blur(24px);opacity:0.16}
-    .avatar{width:110px;height:110px;border-radius:18px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:44px;color:white;box-shadow:0 6px 18px rgba(124,92,255,0.18);position:relative;z-index:2}
-    .info{z-index:2}
-    h1{margin:0;font-size:28px;letter-spacing:0.6px}
-    p.bio{margin:6px 0 0;color:var(--muted);max-width:520px}
-    .links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:20px 28px 36px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;background:var(--glass);color:inherit;text-decoration:none;border:1px solid rgba(255,255,255,0.03);transition:transform .14s ease,background .14s}
-    .btn:hover{transform:translateY(-4px);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
-    .btn .icon{width:20px;height:20px;display:inline-grid;place-items:center;opacity:0.95}
-    .small{font-size:13px;color:var(--muted)}
-    .footer{padding:14px 28px 28px;color:var(--muted);font-size:13px}
-    .copy{cursor:pointer}
-    @media (max-width:560px){.hero{flex-direction:column;align-items:flex-start}.avatar{width:96px;height:96px}.links{grid-template-columns:1fr}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenox - Content Creator</title>
+    <meta name="description" content="Zenox">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../Képek/zenoxkozep.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d1b4e 50%, #1a1f3a 100%);
+            color: #f5f5f5;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .background img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .bg-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            top: 80px;
+            left: 40px;
+            width: 288px;
+            height: 288px;
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .shape-2 {
+            bottom: 80px;
+            right: 40px;
+            width: 384px;
+            height: 384px;
+            background: rgba(168, 85, 247, 0.2);
+            animation-delay: 2s;
+            animation-duration: 8s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 48px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            color: white;
+            letter-spacing: 0.1em;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px rgba(0, 0, 0, 0.2);
+            -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #3b82f6, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 32px;
+            margin: 0 auto 32px;
+            max-width: 768px;
+            transition: all 0.3s ease;
+            animation: scaleIn 0.4s ease-out;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            filter: blur(20px);
+            opacity: 0.75;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.75;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .avatar {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+        }
+
+        .profile-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .username {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .subscriber-count {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+        }
+
+        .info-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+        }
+
+        .discord-profile {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 16px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .discord-profile:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 18px 0 rgba(59, 130, 246, 0.13);
+        }
+
+        .discord-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .discord-icon img {
+            width: 38px;
+            height: 38px;
+            display: block;
+            object-fit: contain;
+            margin: 0 auto;
+            background: none;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 24px 0 rgba(59, 130, 246, 0.12), 0 1.5px 8px 0 rgba(168, 85, 247, 0.10);
+        }
+
+        .social-link:hover .social-icon img {
+            filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.25));
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 4px auto;
+        }
+
+        .social-icon img {
+            width: 56px;
+            height: 56px;
+            display: block;
+            object-fit: contain;
+            background: none;
+            border-radius: 4px;
+            margin: 0;
+            pointer-events: none;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+            aspect-ratio: 1/1;
+            box-sizing: border-box;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 24px;
+            margin: 0 auto 32px;
+            max-width: 768px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .section-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 32px 0 rgba(59, 130, 246, 0.10), 0 2px 12px 0 rgba(168, 85, 247, 0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .section-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .youtube-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .music-icon {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .music-player {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .music-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .music-title {
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 12px 0 rgba(59, 130, 246, 0.13);
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .avatar {
+                width: 96px;
+                height: 96px;
+            }
+
+            .profile-name {
+                font-size: 1.75rem;
+            }
+
+            .glass-card {
+                padding: 24px;
+            }
+
+            .section-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <main class="card" role="main" aria-labelledby="zenox-name">
-      <div class="hero">
-        <div class="banner" aria-hidden="true"></div>
-        <div class="avatar" id="avatar">Z</div>
-        <div class="info">
-          <h1 id="zenox-name">Zenox</h1>
-          <p class="bio" id="bio">Content Creator & Streamer — Gaming, edits and chill streams. New videos every week.</p>
-          <p class="small">Links & socials</p>
+    <div class="background">
+        <img src="../Képek/zenox_banner.png" alt="asd">
+    </div>
+
+    <div class="container">
+        <div class="hero-banner">
+            <h1 class="hero-title">
+                USE CODE <span class="text-gradient"><i>HAMAROSAN...</i></span>
+            </h1>
         </div>
-      </div>
 
-      <section class="links" aria-label="Social links">
-        <a class="btn" href="https://youtube.com/@zenox" target="_blank" rel="noopener noreferrer">
-          <span class="icon">▶️</span>
-          <div>
-            <div><strong>YouTube</strong></div>
-            <div class="small">Subscribe for videos</div>
-          </div>
-        </a>
+        <div class="glass-card">
+            <div class="profile-section">
+                <div class="avatar-wrapper">
+                    <div class="avatar-glow"></div>
+                    <img src="../Képek/zenoxkozep.png" alt="Zenox Avatar" class="avatar">
+                </div>
 
-        <a class="btn" href="https://twitch.tv/zenox" target="_blank" rel="noopener noreferrer">
-          <span class="icon">🔴</span>
-          <div>
-            <div><strong>Twitch</strong></div>
-            <div class="small">Live streams</div>
-          </div>
-        </a>
+                <div class="profile-name">
+                    <span>Zenox</span>
+                    <span>36</span>
+                </div>
 
-        <a class="btn" href="https://discord.gg/your-invite" target="_blank" rel="noopener noreferrer">
-          <span class="icon">💬</span>
-          <div>
-            <div><strong>Discord</strong></div>
-            <div class="small">Join the community</div>
-          </div>
-        </a>
+                <div class="username">@zenox36</div>
 
-        <a class="btn" href="https://instagram.com/zenox" target="_blank" rel="noopener noreferrer">
-          <span class="icon">📸</span>
-          <div>
-            <div><strong>Instagram</strong></div>
-            <div class="small">Shorts & Stories</div>
-          </div>
-        </a>
+                <div class="subscriber-count">
+                    <span></span>
+                    <span>1K Feliratkozó</span>
+                </div>
 
-        <a class="btn" href="#" id="copyLink" title="Copy profile link">
-          <span class="icon">🔗</span>
-          <div>
-            <div><strong>Copy profile link</strong></div>
-            <div class="small">Share Zenox</div>
-          </div>
-        </a>
+                <p class="tagline">"Ha sokat imádkozol, olyan lehetsz mint batyi."</p>
 
-        <a class="btn" href="#download" id="downloadBtn" title="Download HTML">
-          <span class="icon">⬇️</span>
-          <div>
-            <div><strong>Download .html</strong></div>
-            <div class="small">Save a copy</div>
-          </div>
-        </a>
-      </section>
+                <div class="info-badges">
+                    <span>🎬 Krézi videós!</span>
+                    <span>•</span>
+                    <span>🇮🇹/🇭🇺</span>
+                </div>
+            </div>
 
-      <div class="footer">Made for <strong>Zenox</strong>. To edit: replace placeholders (links, bio, avatar initial). Save file as <code>zenox.html</code> and open in your browser.</div>
-    </main>
-  </div>
+            <div class="discord-profile">
+                <div class="discord-icon"><img src="../Képek/discord_logo.png" alt=""></div>
+                <div>
+                    <div style="color: white; font-weight: 600;"><a href="https://discord.com/users/1091047970708930734"
+                            style="color: white; text-decoration: none;">Zenox</div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">Discord Profile</div>
+                    </a>
+                </div>
+            </div>
 
-  <script>
-    // Copy profile link
-    document.getElementById('copyLink').addEventListener('click', function(e){
-      e.preventDefault();
-      const url = location.href;
-      navigator.clipboard?.writeText(url).then(()=>{
-        this.querySelector('.small').textContent = 'Copied!';
-        setTimeout(()=> this.querySelector('.small').textContent = 'Share Zenox', 1600);
-      }).catch(()=>{
-        alert('Copy failed — use manual link.');
-      });
-    });
+            <div class="social-grid">
+                <a href="https://www.tiktok.com/@zenoxgaming6927" class="social-link">
+                    <div class="social-icon"><img src="../Képek/tiktok_logo.webp" alt="tiktok_logo_muavees"></div>
+                </a>
 
-    // Download the HTML content
-    document.getElementById('downloadBtn').addEventListener('click', function(e){
-      e.preventDefault();
-      const html = '<!doctype html>' + '\n' + document.documentElement.outerHTML;
-      const blob = new Blob([html], {type: 'text/html'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'zenox.html';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-  </script>
+                <a href="https://www.twitch.tv/zenoxgfn" class="social-link">
+                    <div class="social-icon"><img src="../Képek/77281-twitch.png" alt="twitch_logo_muavees"></div>
+                </a>
+                <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="social-link">
+                    <div class="social-icon"><img src="../Képek/spotify.webp" alt="spotify_logo_muavees"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-info">
+                    <a href="https://discord.gg/JvSfynr8vH" style="text-decoration: none;">
+                        <div class="section-icon">💬</div>
+                        <div>
+                            <div class="section-title">Discord Szerver</div>
+                            <div class="section-subtitle">Csatlakozz be a Zenox Community-be!</div>
+                        </div>
+                    </a>
+                </div>
+                <span style="font-size: 2rem;">👥</span>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-info" style="margin-bottom: 16px;">
+                <div class="section-icon youtube-icon">🎥</div>
+                <div>
+                    <a href="https://www.youtube.com/@Zenox36/videos" style="text-decoration: none; color: inherit;">
+                    <div class="section-title">YouTube</div>
+                    <div class="section-subtitle">Legutóbbi videóim:</div>
+                </div>
+                </a>
+            </div>
+            <div class="video-placeholder">
+                <iframe
+                    src="https://www.youtube.com/embed/2pv_s6ki1nA"
+                    width="420"
+                    height="236"
+                    allowfullscreen
+                    loading="lazy"
+                    style="border-radius: 16px; border: none; display: block; width: 100%; max-width: 560px; aspect-ratio: 16/9; background: #000;">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="music-player">
+                <div class="music-info">
+                    <div class="music-title">Made by:</div>
+                    <div class="section-subtitle"><b><a href="https://muaves.github.io"
+                                style="text-decoration: none; text-align: center;">Muavees</a></b></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Zenox. Minden jog fenntartva.</p>
+        </div>
+    </div>
 </body>
+az oldalt 100%-ban MUAVEES csinalta
 </html>
