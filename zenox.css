@@ -1,4 +1,4 @@
-        * {
+ * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -135,16 +135,22 @@
 
         .avatar-wrapper {
             position: relative;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 24px;
+            background: none;
+            box-shadow: none;
         }
 
         .avatar-glow {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #3b82f6, #a855f7);
-            filter: blur(20px);
-            opacity: 0.75;
+            border-radius: 24px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.55) 0%, rgba(168, 85, 247, 0.15) 60%, transparent 100%);
+            filter: blur(24px);
+            opacity: 1;
+            z-index: 0;
             animation: pulse 2s infinite;
         }
 
@@ -165,9 +171,11 @@
             width: 120px;
             height: 120px;
             border-radius: 24px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border: none;
+            box-shadow: none;
             object-fit: cover;
+            background: none;
+            z-index: 1;
         }
 
         .profile-name {
