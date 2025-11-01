@@ -126,9 +126,16 @@
             </div>
         </div>
 
-        <div class="footer">
-            <p>© 2025 Zenox. Minden jog fenntartva.</p>
+       
         </div>
     </div>
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("year").textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <footer class="footer">© <span id="year"></span> Zenox. Minden jog fenntartva!</footer>
+    <br>
 </body>
 </html>
