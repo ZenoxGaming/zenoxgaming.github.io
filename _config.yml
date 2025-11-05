@@ -1,5 +1,0 @@
-plugins:
-  - jekyll-sitemap
-  
-  url: "https://zenoxgaming.github.io"
-baseurl: "/zenoxgaming.github.io"
