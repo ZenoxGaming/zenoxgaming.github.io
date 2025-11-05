@@ -4,7 +4,7 @@ az oldal azert lett leallitva mer zenox ver!
 FELTETELEK hogy visszaallitsam: 
 
 Ne verjen meg 7 suli napon xdd vagy 
-ezt elmondom irlbe baratom
+(ezt elmondom irlbe baratom)
 
 Hat ja sajnalom hogy ehez kellet fordulnom kovacs
 na mind1
