@@ -3,7 +3,7 @@ az oldal azert lett leallitva mer zenox ver!
 
 FELTETELEK hogy visszaallitsam: 
 
-Ne verjen meg 7 suli napon xdd
+Ne verjen meg 7 suli napon xdd vagy 
 Csenge 2 honapig bogyoressze az arcat!
 
 Hat ja sajnalom hogy ehez kellet fordulnom kovacs
