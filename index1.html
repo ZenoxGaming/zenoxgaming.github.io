@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Femboy</title>
+  <meta name="description" content="Bad boy zenox">
+    <style>
+        html,body{height:100%;}
+        body {
+            margin:0;
+            padding:0;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            background: repeating-linear-gradient(45deg, #ff00ff 0 20px, #00ffff 20px 40px), url('https://media.giphy.com/media/26gR0p7sQe8zQvG6o/giphy.gif');
+            background-blend-mode: multiply;
+            background-size: auto, 300px 300px;
+            color:#000000;
+            overflow:hidden;
+        }
+
+        .container {
+            text-align:center;
+            padding:2rem;
+        }
+
+        h1 {
+            font-size:5rem;
+            margin:0.5rem 0;
+            color: #ffff00;
+            text-shadow: 4px 4px 0 #ff0000, -4px -4px 0 #00ff00;
+            animation: blink 0.6s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; transform: rotate(-3deg) scale(1.02); }
+        }
+
+        .subtitle {
+            font-size:2rem;
+            color:#ffffff;
+            background: linear-gradient(90deg,#ffb347,#ffcc33);
+            display:inline-block;
+            padding:0.5rem 1rem;
+            border-radius:12px;
+            margin-bottom:1rem;
+            transform: skewX(-10deg);
+            box-shadow: 0 6px 0 #ff66cc;
+        }
+
+        .ugly-box {
+            margin:2rem auto;
+            width:90%;
+            max-width:1100px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,0,0.3));
+            border: 8px dashed #ff0000;
+            padding:1.5rem;
+            color:#111;
+            border-radius: 4px;
+        }
+
+        marquee { font-size:1.2rem; color:#000; }
+
+        .emoji-row {
+            font-size:3rem;
+            margin:1rem 0;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .punish-list {
+            text-align:left;
+            max-width:700px;
+            margin:1rem auto;
+            font-size:1.1rem;
+            line-height:1.6;
+            color:#220000;
+            background: #ffffffcc;
+            padding:1rem;
+            border-radius:6px;
+            border:4px solid #00ff00;
+        }
+
+        .big-button {
+            display:inline-block;
+            margin-top:1rem;
+            padding:1rem 2rem;
+            background: radial-gradient(circle at 20% 20%, #ff0000, #cc00cc);
+            color:#fff;
+            font-weight:bold;
+            border:6px double #ffff00;
+            border-radius:20px;
+            box-shadow: 0 8px 0 #000000;
+            transform: translateY(0);
+            transition: transform 0.08s ease-in-out;
+        }
+
+        .big-button:active { transform: translateY(4px) rotate(-2deg); }
+
+        .footer-noise {
+            position:fixed;
+            bottom:0;
+            left:0;
+            right:0;
+            height:120px;
+            background: linear-gradient(90deg,#00ff99,#ff0066,#ffff00,#33ccff);
+            opacity:0.85;
+            mix-blend-mode: overlay;
+        }
+
+        .blinker {
+            position:fixed; top:0; left:0; right:0; height:6px; background:#00ff00;
+            box-shadow:0 0 20px #00ff00; animation: bar 0.4s linear infinite;
+        }
+
+        @keyframes bar {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="blinker"></div>
+    <div class="container">
+        <h1>BÜNTETÉS ZENOXNAK!</h1>
+        <div class="subtitle">Itt a hülyeségek gyűlnek — Szégyeld el magad!</div>
+
+        <div class="ugly-box">
+            <marquee behavior="alternate" scrollamount="15">⚠️ Ha ide kerültél, akkor bizony büntetés jár! ⚠️</marquee>
+            <div class="emoji-row">🤡💩🎉🦴🌭</div>
+
+            <p style="font-weight:bold; color:#990000; font-size:1.3rem;">Szabályok (amelyeket nem tartottál be):</p>
+            <ol class="punish-list">
+                <li>Ne írj butaságokat a chatbe — ha igen, itt az ára.</li>
+                <li>Nagyon rosszkisfiu vagy tedd magad jobba</li>
+                <li>Ne lopd el a sütidet — a büntetés garantált.</li>
+                <li>Ha elismered: nyomj meg egy gombot és táncolj a képernyőn.</li>
+            </ol>
+
+            <p style="text-align:center; margin-top:1rem;">
+                <a href="#dance" class="big-button" onclick="doPunish(event)">Igen, megbántam! Táncolok 🎶</a>
+            </p>
+            <marquee behavior="scroll" direction="left" style="margin-top:1rem;">🏳️‍🌈 Fejezd be a rosszalkodást — itt nincs kegyelem!</marquee>
+        </div>
+
+        <p style="margin-top:1rem; font-size:0.9rem; color:#000; text-shadow:1px 1px 0 #fff;">Megjegyzés: ez az oldal kifejezetten ronda, csúf, és tele van gagyi elemekkel. Élvezd a büntetést.</p>
+    </div>
+
+    <div class="footer-noise"></div>
+
+    <script>
+        function doPunish(e) {
+            e.preventDefault();
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.left = '0';
+            overlay.style.top = '0';
+            overlay.style.right = '0';
+            overlay.style.bottom = '0';
+            overlay.style.zIndex = '9999';
+            overlay.style.background = 'repeating-linear-gradient(45deg, rgba(255,0,0,0.2) 0 10px, rgba(0,255,0,0.2) 10px 20px)';
+            overlay.style.display = 'flex';
+            overlay.style.alignItems = 'center';
+            overlay.style.justifyContent = 'center';
+            overlay.innerHTML = `
+                <div style="text-align:center; font-family: 'Comic Sans MS', cursive;">
+                    <div style="font-size:4rem;">💃🕺</div>
+                    <div style="font-size:2rem; color:#fff; text-shadow:2px 2px 0 #000;">Táncolj most! (3...2...1...)</div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+
+            let flashes = 0;
+            const timer = setInterval(() => {
+                overlay.style.opacity = (flashes % 2 === 0) ? '0.4' : '1';
+                flashes++;
+                if (flashes > 8) {
+                    clearInterval(timer);
+                    overlay.remove();
+                    alert('Büntetés vége. Tanultál valamit? hat nem, próbáld újra! L');
+                }
+            }, 300);
+        }
+    </script>
+</body>
+</html>
