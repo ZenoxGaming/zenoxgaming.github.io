@@ -1,13 +1,9 @@
-Sziasztok gyokerek!
-az oldal azert lett leallitva mer zenox ver!
+Sziasztok! a weboldal azért nincs mer Zenox <b> Furry<b>
+lett sajna!
+Szvl ja egy nagy fanum tax a gyerek es verik otthon!
 
-FELTETELEK hogy visszaallitsam: 
-
-Ne verjen meg 7 suli napon xdd vagy 
-(ezt elmondom irlbe baratom)
-
-Hat ja sajnalom hogy ehez kellet fordulnom kovacs
-na mind1
+Ja es 2-est irt Bioszbol (shame)
+L Zenox
 
 https://redstone-launcher.com
 A legjobb mc launcher!!!
