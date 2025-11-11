@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Info's</title>
+    <link rel="shortcut icon" href="zenoxkozep.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            background-color: #fff;
+            height: 100vh;
+        }
+
+        .error-message {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-family: monospace;
+            font-size: 180px;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="error-message" id="error"></div>
+
+    <script>
+        const path = window.location.pathname;
+        document.body.textContent = `Cannot get ${path}`;
+    </script>
+</body>
+
+</html>
