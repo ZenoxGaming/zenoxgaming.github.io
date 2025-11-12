@@ -10,13 +10,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../zenoxkozep.png" type="image/x-icon">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <link rel="stylesheet" href="zenox.css">
-
 </head>
 
 <body>
+    <div class="hamburger-btn" id="hamburgerBtn">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-section">
+            <div class="menu-title">🔗 Linkek</div>
+            <a href="https://www.tiktok.com/@zenoxgaming6927" class="menu-link" target="_blank">
+                <div class="menu-icon">🎵</div>
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.twitch.tv/zenoxgfn" class="menu-link" target="_blank">
+                <div class="menu-icon">📺</div>
+                <span>Twitch</span>
+            </a>
+            <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="menu-link" target="_blank">
+                <div class="menu-icon">🎧</div>
+                <span>Spotify</span>
+            </a>
+            <a href="https://discord.gg/JvSfynr8vH" class="menu-link" target="_blank">
+                <div class="menu-icon">💬</div>
+                <span>Discord Szerver</span>
+            </a>
+            <a href="https://www.youtube.com/@Zenox36/videos" class="menu-link" target="_blank">
+                <div class="menu-icon">🎥</div>
+                <span>YouTube</span>
+            </a>
+            <a href="infos.html" class="menu-link">
+                <div class="menu-icon">ℹ️</div>
+                <span>Infók</span>
+            </a>
+        </div>
+
+        <div class="admin-section">
+            <div class="menu-title">🔐 Admin</div>
+
+            <div class="admin-login" id="adminLogin">
+                <input type="email" class="admin-input" id="adminEmail" placeholder="Email">
+                <input type="password" class="admin-input" id="adminPassword" placeholder="Jelszó">
+                <button class="admin-btn" onclick="login()">Bejelentkezés</button>
+            </div>
+
+            <div class="admin-panel" id="adminPanel">
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 10px;">✅ Bejelentkezve adminként</p>
+                <label style="color: white; font-size: 0.9rem; margin-bottom: 5px;">YouTube Video ID:</label>
+                <input type="text" class="admin-input" id="videoUrlInput" placeholder="pl.: 2pv_s6ki1nA">
+                <button class="admin-btn" onclick="updateVideo()">Videó frissítése</button>
+                <button class="admin-btn logout-btn" onclick="logout()">Kijelentkezés</button>
+            </div>
+        </div>
+    </div>
+
     <div class="background">
-        <img src="../zenox_banner.png" alt="asd">
+        <img src="../Zenox/zenox_banner.png" alt="Background">
     </div>
 
     <div class="container">
@@ -55,25 +111,25 @@
             </div>
 
             <div class="discord-profile">
-                <div class="discord-icon"><img src="../discord_logo.png" alt=""></div>
+                <div class="discord-icon"><img src="../discord_logo.png" alt="Discord"></div>
                 <div>
-                    <div style="color: white; font-weight: 600;"><a href="https://discord.com/users/1091047970708930734"
-                            style="color: white; text-decoration: none;">Zenox</div>
+                    <div style="color: white; font-weight: 600;">
+                        <a href="https://discord.com/users/1091047970708930734"
+                            style="color: white; text-decoration: none;">Zenox</a>
+                    </div>
                     <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">Discord Profile</div>
-                    </a>
                 </div>
             </div>
 
             <div class="social-grid">
                 <a href="https://www.tiktok.com/@zenoxgaming6927" class="social-link">
-                    <div class="social-icon"><img src="../tiktok_logo.webp" alt="tiktok_logo_muavees"></div>
+                    <div class="social-icon"><img src="../tiktok_logo.webp" alt="TikTok"></div>
                 </a>
-
                 <a href="https://www.twitch.tv/zenoxgfn" class="social-link">
-                    <div class="social-icon"><img src="../77281-twitch.png" alt="twitch_logo_muavees"></div>
+                    <div class="social-icon"><img src="../77281-twitch.png" alt="Twitch"></div>
                 </a>
                 <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="social-link">
-                    <div class="social-icon"><img src="../spotify.webp" alt="spotify_logo_muavees"></div>
+                    <div class="social-icon"><img src="../spotify.webp" alt="Spotify"></div>
                 </a>
             </div>
         </div>
@@ -98,18 +154,13 @@
                 <div class="section-icon youtube-icon">🎥</div>
                 <div>
                     <a href="https://www.youtube.com/@Zenox36/videos" style="text-decoration: none; color: inherit;">
-                    <div class="section-title">YouTube</div>
-                    <div class="section-subtitle">Legutóbbi videóim:</div>
+                        <div class="section-title">YouTube</div>
+                        <div class="section-subtitle">Legutóbbi videóim:</div>
+                    </a>
                 </div>
-                </a>
             </div>
             <div class="video-placeholder">
-                <iframe
-                    src="https://www.youtube.com/embed/2pv_s6ki1nA"
-                    width="600px"
-                    height="400px"
-                    allowfullscreen
-                    loading="lazy"
+                <iframe id="youtubeIframe" width="600px" height="400px" allowfullscreen loading="lazy"
                     style="border-radius: 16px; border: none; display: block; width: 100%; max-width: 560px; aspect-ratio: 16/9; background: #000;">
                 </iframe>
             </div>
@@ -119,23 +170,97 @@
             <div class="music-player">
                 <div class="music-info">
                     <div class="music-title">Made by:</div>
-                    <div class="section-subtitle"><b><a href="https://muaves.github.io"
-                                style="text-decoration: none; text-align: center;">Muavees</a></b></div>
-                                <p>Az oldalról több infót megtalálsz <a href="infos.html" style="text-decoration: underline; color: white;">itt!</a></p>
+                    <div class="section-subtitle">
+                        <b><a href="https://muaves.github.io"
+                                style="text-decoration: none; text-align: center;">Muavees</a></b>
+                    </div>
+                    <p>Az oldalról több infót megtalálsz <a href="infos.html"
+                            style="text-decoration: underline; color: white;">itt!</a></p>
                 </div>
             </div>
         </div>
-
-       
-        </div>
     </div>
-     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById("year").textContent = new Date().getFullYear();
-        });
-    </script>
 
     <footer class="footer">© <span id="year"></span> Zenox. Minden jog fenntartva!</footer>
     <br>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("year").textContent = new Date().getFullYear();
+
+            const savedVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
+            loadVideo(savedVideo);
+
+            const isAdmin = localStorage.getItem('zenoxAdmin') === 'true';
+            if (isAdmin) {
+                showAdminPanel();
+            }
+        });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('active');
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        function login() {
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (email === 'admin@zenox.com' && password === 'zenox2025') {
+                localStorage.setItem('zenoxAdmin', 'true');
+                showAdminPanel();
+                alert('✅ Sikeres bejelentkezés!');
+            } else {
+                alert('❌ Hibás email vagy jelszó!');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('zenoxAdmin');
+            hideAdminPanel();
+            alert('Kijelentkezve!');
+        }
+
+        function showAdminPanel() {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('active');
+
+            const currentVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
+            document.getElementById('videoUrlInput').value = currentVideo;
+        }
+
+        function hideAdminPanel() {
+            document.getElementById('adminLogin').style.display = 'flex';
+            document.getElementById('adminPanel').classList.remove('active');
+            document.getElementById('adminEmail').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        function updateVideo() {
+            const videoId = document.getElementById('videoUrlInput').value.trim();
+
+            if (videoId) {
+                localStorage.setItem('zenoxVideoId', videoId);
+                loadVideo(videoId);
+                alert('✅ Videó frissítve!');
+            } else {
+                alert('❌ Kérlek adj meg egy video ID-t!');
+            }
+        }
+
+        function loadVideo(videoId) {
+            const iframe = document.getElementById('youtubeIframe');
+            iframe.src = `https://www.youtube.com.com/embed/${videoId}`;
+        }
+    </script>
 </body>
+
 </html>
