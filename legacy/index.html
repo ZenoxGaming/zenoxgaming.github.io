@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenox - Content Creator</title>
+    <meta name="description" content="Zenox">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../zenoxkozep.png" type="image/x-icon">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+ 
+</head>
+<style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a1f3a 0%, #2d1b4e 50%, #1a1f3a 100%);
+            color: #f5f5f5;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .background img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .hamburger-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hamburger-line {
+            width: 30px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            max-width: 90vw;
+            height: 100vh;
+            background: rgba(26, 31, 58, 0.95);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding: 80px 30px 30px;
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        .menu-section {
+            margin-bottom: 40px;
+        }
+
+        .menu-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .menu-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .admin-section {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .admin-login {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .admin-input {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .admin-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .admin-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .admin-panel {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .admin-panel.active {
+            display: flex;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        /* Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 16px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 48px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            color: white;
+            letter-spacing: 0.1em;
+            text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3), 8px 8px 0px rgba(0, 0, 0, 0.2);
+            -webkit-text-stroke: 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 16px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #3b82f6, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(11px);
+            border: 1px solid rgba(145, 169, 221, 0.151);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 32px;
+            margin: 0 auto 32px;
+            max-width: 768px;
+            transition: all 0.3s ease;
+            animation: scaleIn 0.4s ease-out;
+        }
+
+        .glass-card:hover {
+            background: #665c7d27;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: none;
+            box-shadow: none;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.55) 0%, rgba(168, 85, 247, 0.15) 60%, transparent 100%);
+            filter: blur(24px);
+            opacity: 1;
+            z-index: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.75; }
+            50% { opacity: 0.5; }
+        }
+
+        .avatar {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            border: none;
+            box-shadow: none;
+            object-fit: cover;
+            background: none;
+            z-index: 1;
+        }
+
+        .profile-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .username {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .subscriber-count {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+        }
+
+        .info-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            flex-wrap: wrap;
+        }
+
+        .discord-profile {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 16px;
+            margin: 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .discord-profile:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 18px 0 rgba(59, 130, 246, 0.13);
+        }
+
+        .discord-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .discord-icon img {
+            width: 38px;
+            height: 38px;
+            display: block;
+            object-fit: contain;
+            margin: 0 auto;
+            background: none;
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .social-link {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 24px 0 rgba(59, 130, 246, 0.12), 0 1.5px 8px 0 rgba(168, 85, 247, 0.10);
+        }
+
+        .social-link:hover .social-icon img {
+            filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.25));
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 4px auto;
+        }
+
+        .social-icon img {
+            width: 56px;
+            height: 56px;
+            display: block;
+            object-fit: contain;
+            background: none;
+            border-radius: 4px;
+            margin: 0;
+            pointer-events: none;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+            aspect-ratio: 1/1;
+            box-sizing: border-box;
+        }
+
+        .section-card {
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            padding: 24px;
+            margin: 0 auto 32px;
+            max-width: 768px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .section-card:hover {
+            background: #665c7d27;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 6px 32px 0 rgba(59, 130, 246, 0.10), 0 2px 12px 0 rgba(168, 85, 247, 0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .section-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .youtube-icon {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .section-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .music-player {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .music-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .music-title {
+            color: white;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .avatar { width: 96px; height: 96px; }
+            .profile-name { font-size: 1.75rem; }
+            .glass-card { padding: 24px; }
+            .section-card { padding: 20px; }
+            .side-menu { width: 100vw; right: -100vw; }
+        }
+  </style>
+<body>
+    <div class="hamburger-btn" id="hamburgerBtn">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-section">
+            <div class="menu-title">🔗 Linkek</div>
+            <a href="https://www.tiktok.com/@zenoxgaming6927" class="menu-link" target="_blank">
+                <div class="menu-icon">🎵</div>
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.twitch.tv/zenoxgfn" class="menu-link" target="_blank">
+                <div class="menu-icon">📺</div>
+                <span>Twitch</span>
+            </a>
+            <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="menu-link" target="_blank">
+                <div class="menu-icon">🎧</div>
+                <span>Spotify</span>
+            </a>
+            <a href="https://discord.gg/JvSfynr8vH" class="menu-link" target="_blank">
+                <div class="menu-icon">💬</div>
+                <span>Discord Szerver</span>
+            </a>
+            <a href="https://www.youtube.com/@Zenox36/videos" class="menu-link" target="_blank">
+                <div class="menu-icon">🎥</div>
+                <span>YouTube</span>
+            </a>
+            <a href="infos.html" class="menu-link">
+                <div class="menu-icon">ℹ️</div>
+                <span>Infók</span>
+            </a>
+        </div>
+
+        <div class="admin-section">
+            <div class="menu-title">🔐 Admin</div>
+            
+            <div class="admin-login" id="adminLogin">
+                <input type="email" class="admin-input" id="adminEmail" placeholder="Email">
+                <input type="password" class="admin-input" id="adminPassword" placeholder="Jelszó">
+                <button class="admin-btn" onclick="login()">Bejelentkezés</button>
+            </div>
+
+            <div class="admin-panel" id="adminPanel">
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 10px;">✅ Bejelentkezve adminként</p>
+                <label style="color: white; font-size: 0.9rem; margin-bottom: 5px;">YouTube Video ID:</label>
+                <input type="text" class="admin-input" id="videoUrlInput" placeholder="pl.: 2pv_s6ki1nA">
+                <button class="admin-btn" onclick="updateVideo()">Videó frissítése</button>
+                <button class="admin-btn logout-btn" onclick="logout()">Kijelentkezés</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="background">
+        <img src="../Zenox/zenox_banner.png" alt="Background">
+    </div>
+
+    <div class="container">
+        <div class="hero-banner">
+            <h1 class="hero-title">
+                USE CODE <span class="text-gradient"><i>HAMAROSAN...</i></span>
+            </h1>
+        </div>
+
+        <div class="glass-card">
+            <div class="profile-section">
+                <div class="avatar-wrapper">
+                    <div class="avatar-glow"></div>
+                    <img src="../zenoxkozep.png" alt="Zenox Avatar" class="avatar">
+                </div>
+
+                <div class="profile-name">
+                    <span>Zenox</span>
+                    <span>36</span>
+                </div>
+
+                <div class="username">@zenox36</div>
+
+                <div class="subscriber-count">
+                    <span></span>
+                    <span>1K Feliratkozó</span>
+                </div>
+
+                <p class="tagline">"Ha sokat imádkozol, olyan lehetsz mint batyi."</p>
+
+                <div class="info-badges">
+                    <span>🎬 Krézi videós!</span>
+                    <span>•</span>
+                    <span>🇮🇹/🇭🇺</span>
+                </div>
+            </div>
+
+            <div class="discord-profile">
+                <div class="discord-icon"><img src="../discord_logo.png" alt="Discord"></div>
+                <div>
+                    <div style="color: white; font-weight: 600;">
+                        <a href="https://discord.com/users/1091047970708930734" style="color: white; text-decoration: none;">Zenox</a>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">Discord Profile</div>
+                </div>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://www.tiktok.com/@zenoxgaming6927" class="social-link">
+                    <div class="social-icon"><img src="../tiktok_logo.webp" alt="TikTok"></div>
+                </a>
+                <a href="https://www.twitch.tv/zenoxgfn" class="social-link">
+                    <div class="social-icon"><img src="../77281-twitch.png" alt="Twitch"></div>
+                </a>
+                <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="social-link">
+                    <div class="social-icon"><img src="../spotify.webp" alt="Spotify"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-info">
+                    <a href="https://discord.gg/JvSfynr8vH" style="text-decoration: none;">
+                        <div class="section-icon">💬</div>
+                        <div>
+                            <div class="section-title">Discord Szerver</div>
+                            <div class="section-subtitle">Csatlakozz be a Zenox Community-be!</div>
+                        </div>
+                    </a>
+                </div>
+                <span style="font-size: 2rem;">👥</span>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-info" style="margin-bottom: 16px;">
+                <div class="section-icon youtube-icon">🎥</div>
+                <div>
+                    <a href="https://www.youtube.com/@Zenox36/videos" style="text-decoration: none; color: inherit;">
+                        <div class="section-title">YouTube</div>
+                        <div class="section-subtitle">Legutóbbi videóim:</div>
+                    </a>
+                </div>
+            </div>
+            <div class="video-placeholder">
+                <iframe
+                    id="youtubeIframe"
+                    width="600px"
+                    height="400px"
+                    allowfullscreen
+                    loading="lazy"
+                    style="border-radius: 16px; border: none; display: block; width: 100%; max-width: 560px; aspect-ratio: 16/9; background: #000;">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="music-player">
+                <div class="music-info">
+                    <div class="music-title">Made by:</div>
+                    <div class="section-subtitle">
+                        <b><a href="https://muaves.github.io" style="text-decoration: none; text-align: center;">Muavees</a></b>
+                    </div>
+                    <p>Az oldalról több infót megtalálsz <a href="infos.html" style="text-decoration: underline; color: white;">itt!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">© <span id="year"></span> Zenox. Minden jog fenntartva!</footer>
+    <br>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("year").textContent = new Date().getFullYear();
+            
+            const savedVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
+            loadVideo(savedVideo);
+            
+            const isAdmin = localStorage.getItem('zenoxAdmin') === 'true';
+            if (isAdmin) {
+                showAdminPanel();
+            }
+        });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('active');
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        function login() {
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (email === 'admin@zenox.com' && password === 'zenox2025') {
+                localStorage.setItem('zenoxAdmin', 'true');
+                showAdminPanel();
+                alert('✅ Sikeres bejelentkezés!');
+            } else {
+                alert('❌ Hibás email vagy jelszó!');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('zenoxAdmin');
+            hideAdminPanel();
+            alert('Kijelentkezve!');
+        }
+
+        function showAdminPanel() {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('active');
+            
+            const currentVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
+            document.getElementById('videoUrlInput').value = currentVideo;
+        }
+
+        function hideAdminPanel() {
+            document.getElementById('adminLogin').style.display = 'flex';
+            document.getElementById('adminPanel').classList.remove('active');
+            document.getElementById('adminEmail').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        function updateVideo() {
+            const videoId = document.getElementById('videoUrlInput').value.trim();
+            
+            if (videoId) {
+                localStorage.setItem('zenoxVideoId', videoId);
+                loadVideo(videoId);
+                alert('✅ Videó frissítve!');
+            } else {
+                alert('❌ Kérlek adj meg egy video ID-t!');
+            }
+        }
+
+        function loadVideo(videoId) {
+            const iframe = document.getElementById('youtubeIframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
+        }
+    </script>
+</body>
+</html>
