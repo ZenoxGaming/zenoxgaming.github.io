@@ -203,6 +203,7 @@
             background: linear-gradient(135deg, #ef4444, #dc2626);
         }
 
+        /* Overlay */
         .menu-overlay {
             position: fixed;
             top: 0;
