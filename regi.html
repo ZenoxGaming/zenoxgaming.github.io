@@ -12,8 +12,7 @@
     <link rel="shortcut icon" href="../zenoxkozep.png" type="image/x-icon">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <link rel="stylesheet" href="zenox.css">
-
- 
+  
 </head>
 
 <body>
@@ -74,7 +73,7 @@
     </div>
 
     <div class="background">
-        <img src="../zenox_banner.png" alt="Background">
+        <img src="../Zenox/zenox_banner.png" alt="Background">
     </div>
 
     <div class="container">
@@ -100,10 +99,10 @@
 
                 <div class="subscriber-count">
                     <span></span>
-                    <span>1K Feliratkozó</span>
+                    <span>10K Feliratkozó</span>
                 </div>
 
-                <p class="tagline">"Ha sokat imádkozol, olyan lehetsz mint batyi."</p>
+                <p class="tagline">Csak a hírnévért és a pénzért csinálom</p>
 
                 <div class="info-badges">
                     <span>🎬 Krézi videós!</span>
@@ -189,7 +188,32 @@
     <br>
 
     <script>
+        function add3DTilt() {
+            const cards = document.querySelectorAll('.glass-card, .section-card, .social-link');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                });
+            });
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
+            add3DTilt();
             document.getElementById("year").textContent = new Date().getFullYear();
             
             const savedVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
@@ -223,7 +247,7 @@
                 showAdminPanel();
                 alert('✅ Sikeres bejelentkezés!');
             } else {
-                alert('❌ Hibás email vagy jelszó, bátya!');
+                alert('❌ Hibás email vagy jelszó!');
             }
         }
 
