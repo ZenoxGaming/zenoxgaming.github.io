@@ -203,7 +203,6 @@
             background: linear-gradient(135deg, #ef4444, #dc2626);
         }
 
-        /* Overlay */
         .menu-overlay {
             position: fixed;
             top: 0;
@@ -261,7 +260,7 @@
             padding: 32px;
             margin: 0 auto 32px;
             max-width: 768px;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease-out, background 0.3s ease, border-color 0.3s ease;
             animation: scaleIn 0.4s ease-out;
         }
 
@@ -418,7 +417,7 @@
             gap: 8px;
             text-decoration: none;
             color: white;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease-out, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
 
@@ -463,7 +462,7 @@
             padding: 24px;
             margin: 0 auto 32px;
             max-width: 768px;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease-out, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
         }
 
