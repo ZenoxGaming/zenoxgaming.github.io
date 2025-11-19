@@ -12,10 +12,12 @@
     <link rel="shortcut icon" href="../zenoxkozep.png" type="image/x-icon">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <link rel="stylesheet" href="zenox.css">
-  
+
+   
 </head>
 
 <body>
+    <!-- THE PAGE IS MADE BY: MUAVEES www.muaves.github.io -->
     <div class="hamburger-btn" id="hamburgerBtn">
         <div class="hamburger-line"></div>
         <div class="hamburger-line"></div>
@@ -26,23 +28,26 @@
 
     <div class="side-menu" id="sideMenu">
         <div class="menu-section">
-            <p style="margin-left: 5;">Version 1.12.0</p>
             <div class="menu-title">🔗 Linkek</div>
-            <a href="https://pornhub.com" class="menu-link" target="_blank">
-                <div class="menu-icon">🧡</div>
-                <span>Hub</span>
+            <a href="https://www.tiktok.com/@zenoxgaming6927" class="menu-link" target="_blank">
+                <div class="menu-icon">🎵</div>
+                <span>TikTok</span>
             </a>
-            <a href="https://www.youtube.com/watch?v=mKCieTImjvU" class="menu-link" target="_blank">
-                <div class="menu-icon">🔥</div>
-                <span>Melegítő</span>
+            <a href="https://www.twitch.tv/zenoxgfn" class="menu-link" target="_blank">
+                <div class="menu-icon">📺</div>
+                <span>Twitch</span>
             </a>
-            <a href="https://tggamesyt.dev/totem/" class="menu-link" target="_blank">
-                <div class="menu-icon">🗿</div>
-                <span>MC Totem maker</span>
+            <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="menu-link" target="_blank">
+                <div class="menu-icon">🎧</div>
+                <span>Spotify</span>
             </a>
-            <a href="https://redstone-launcher.com" class="menu-link" target="_blank">
-                <div class="menu-icon">❤️</div>
-                <span>Redstone Launcher</span>
+            <a href="https://discord.gg/JvSfynr8vH" class="menu-link" target="_blank">
+                <div class="menu-icon">💬</div>
+                <span>Discord Szerver</span>
+            </a>
+            <a href="https://www.youtube.com/@Zenox36/videos" class="menu-link" target="_blank">
+                <div class="menu-icon">🎥</div>
+                <span>YouTube</span>
             </a>
             <a href="infos.html" class="menu-link">
                 <div class="menu-icon">ℹ️</div>
@@ -70,7 +75,7 @@
     </div>
 
     <div class="background">
-        <img src="../zenox_banner.png" alt="Background">
+        <img src="../Zenox/zenox_banner.png" alt="Background">
     </div>
 
     <div class="container">
@@ -96,10 +101,10 @@
 
                 <div class="subscriber-count">
                     <span></span>
-                    <span>10K Feliratkozó</span>
+                    <span>1K Feliratkozó</span>
                 </div>
 
-                <p class="tagline">Csak a hírnévért és a pénzért csinálom</p>
+                <p class="tagline">"Ha sokat imádkozol, olyan lehetsz mint batyi."</p>
 
                 <div class="info-badges">
                     <span>🎬 Krézi videós!</span>
@@ -182,7 +187,6 @@
     </div>
 
     <footer class="footer">© <span id="year"></span> Zenox. Minden jog fenntartva!</footer>
-    
     <br>
 
     <script>
@@ -220,6 +224,28 @@
             const isAdmin = localStorage.getItem('zenoxAdmin') === 'true';
             if (isAdmin) {
                 showAdminPanel();
+            }
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+                return false;
             }
         });
 
