@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../Képek/zenoxkozep.png" type="image/x-icon">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-    <link rel="stylesheet" href="zenox.css">
-
+    
    
 </head>
 
 <body>
-    <!-- !THE PAGE IS MADE BY: MUAVEES www.muaves.github.io -->
     <div class="hamburger-btn" id="hamburgerBtn">
         <div class="hamburger-line"></div>
         <div class="hamburger-line"></div>
@@ -28,6 +25,7 @@
 
     <div class="side-menu" id="sideMenu">
         <div class="menu-section">
+            <p>Version 1.12.3</p>
             <div class="menu-title">🔗 Linkek</div>
             <a href="https://www.tiktok.com/@zenoxgaming6927" class="menu-link" target="_blank">
                 <div class="menu-icon">🎵</div>
@@ -75,7 +73,7 @@
     </div>
 
     <div class="background">
-        <img src="../Képek/zenox_banner.png" alt="Background">
+        <img src="../Képek/zenox_banner.png" alt="Background" loading="lazy">
     </div>
 
     <div class="container">
@@ -89,7 +87,7 @@
             <div class="profile-section">
                 <div class="avatar-wrapper">
                     <div class="avatar-glow"></div>
-                    <img src="../Képek/zenoxkozep.png" alt="Zenox Avatar" class="avatar">
+                    <img src="../Képek/zenoxkozep.png" alt="Zenox Avatar" class="avatar" loading="eager">
                 </div>
 
                 <div class="profile-name">
@@ -101,10 +99,10 @@
 
                 <div class="subscriber-count">
                     <span></span>
-                    <span>1K Feliratkozó</span>
+                    <span>10K Feliratkozó</span>
                 </div>
 
-                <p class="tagline">"Ha sokat imádkozol, olyan lehetsz mint batyi."</p>
+                <p class="tagline">"Csak hírnévért és a pénzért csinálom!</p>
 
                 <div class="info-badges">
                     <span>🎬 Krézi videós!</span>
@@ -114,7 +112,7 @@
             </div>
 
             <div class="discord-profile">
-                <div class="discord-icon"><img src="../Képek/discord_logo.png" alt="Discord"></div>
+                <div class="discord-icon"><img src="../Képek/discord_logo.png" alt="Discord" loading="lazy"></div>
                 <div>
                     <div style="color: white; font-weight: 600;">
                         <a href="https://discord.com/users/1091047970708930734" style="color: white; text-decoration: none;">Zenox</a>
@@ -125,13 +123,13 @@
 
             <div class="social-grid">
                 <a href="https://www.tiktok.com/@zenoxgaming6927" class="social-link">
-                    <div class="social-icon"><img src="../Képek/tiktok_logo.webp" alt="TikTok"></div>
+                    <div class="social-icon"><img src="../Képek/tiktok_logo.webp" alt="TikTok" loading="lazy"></div>
                 </a>
                 <a href="https://www.twitch.tv/zenoxgfn" class="social-link">
-                    <div class="social-icon"><img src="../Képek/77281-twitch.png" alt="Twitch"></div>
+                    <div class="social-icon"><img src="../Képek/77281-twitch.png" alt="Twitch" loading="lazy"></div>
                 </a>
                 <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="social-link">
-                    <div class="social-icon"><img src="../Képek/spotify.webp" alt="Spotify"></div>
+                    <div class="social-icon"><img src="../Képek/spotify.webp" alt="Spotify" loading="lazy"></div>
                 </a>
             </div>
         </div>
@@ -189,28 +187,37 @@
     <footer class="footer">© <span id="year"></span> Zenox. Minden jog fenntartva!</footer>
     <br>
 
-     <script>
+    <script>
+        let ticking = false;
+        const cardTransforms = new WeakMap();
+
         function add3DTilt() {
             const cards = document.querySelectorAll('.glass-card, .section-card, .social-link');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = ((y - centerY) / centerY) * -10;
-                    const rotateY = ((x - centerX) / centerX) * 10;
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            const rect = card.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            
+                            const centerX = rect.width / 2;
+                            const centerY = rect.height / 2;
+                            
+                            const rotateX = ((y - centerY) / centerY) * -10;
+                            const rotateY = ((x - centerX) / centerX) * 10;
+                            
+                            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
                 
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-                });
+                }, { passive: true });
             });
         }
 
@@ -230,24 +237,24 @@
         document.addEventListener('contextmenu', (e) => {
             e.preventDefault();
             return false;
-        });
+        }, { passive: false });
 
         document.addEventListener('copy', (e) => {
             e.preventDefault();
             return false;
-        });
+        }, { passive: false });
 
         document.addEventListener('cut', (e) => {
             e.preventDefault();
             return false;
-        });
+        }, { passive: false });
 
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'u' || e.key === 'U')) {
                 e.preventDefault();
                 return false;
             }
-        });
+        }, { passive: false });
 
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const sideMenu = document.getElementById('sideMenu');
