@@ -1,188 +1,324 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Femboy</title>
-  <meta name="description" content="Bad boy zenox">
-    <style>
-        html,body{height:100%;}
-        body {
-            margin:0;
-            padding:0;
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-            background: repeating-linear-gradient(45deg, #ff00ff 0 20px, #00ffff 20px 40px), url('https://media.giphy.com/media/26gR0p7sQe8zQvG6o/giphy.gif');
-            background-blend-mode: multiply;
-            background-size: auto, 300px 300px;
-            color:#000000;
-            overflow:hidden;
-        }
-
-        .container {
-            text-align:center;
-            padding:2rem;
-        }
-
-        h1 {
-            font-size:5rem;
-            margin:0.5rem 0;
-            color: #ffff00;
-            text-shadow: 4px 4px 0 #ff0000, -4px -4px 0 #00ff00;
-            animation: blink 0.6s steps(1) infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; transform: rotate(-3deg) scale(1.02); }
-        }
-
-        .subtitle {
-            font-size:2rem;
-            color:#ffffff;
-            background: linear-gradient(90deg,#ffb347,#ffcc33);
-            display:inline-block;
-            padding:0.5rem 1rem;
-            border-radius:12px;
-            margin-bottom:1rem;
-            transform: skewX(-10deg);
-            box-shadow: 0 6px 0 #ff66cc;
-        }
-
-        .ugly-box {
-            margin:2rem auto;
-            width:90%;
-            max-width:1100px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,0,0.3));
-            border: 8px dashed #ff0000;
-            padding:1.5rem;
-            color:#111;
-            border-radius: 4px;
-        }
-
-        marquee { font-size:1.2rem; color:#000; }
-
-        .emoji-row {
-            font-size:3rem;
-            margin:1rem 0;
-            animation: spin 10s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .punish-list {
-            text-align:left;
-            max-width:700px;
-            margin:1rem auto;
-            font-size:1.1rem;
-            line-height:1.6;
-            color:#220000;
-            background: #ffffffcc;
-            padding:1rem;
-            border-radius:6px;
-            border:4px solid #00ff00;
-        }
-
-        .big-button {
-            display:inline-block;
-            margin-top:1rem;
-            padding:1rem 2rem;
-            background: radial-gradient(circle at 20% 20%, #ff0000, #cc00cc);
-            color:#fff;
-            font-weight:bold;
-            border:6px double #ffff00;
-            border-radius:20px;
-            box-shadow: 0 8px 0 #000000;
-            transform: translateY(0);
-            transition: transform 0.08s ease-in-out;
-        }
-
-        .big-button:active { transform: translateY(4px) rotate(-2deg); }
-
-        .footer-noise {
-            position:fixed;
-            bottom:0;
-            left:0;
-            right:0;
-            height:120px;
-            background: linear-gradient(90deg,#00ff99,#ff0066,#ffff00,#33ccff);
-            opacity:0.85;
-            mix-blend-mode: overlay;
-        }
-
-        .blinker {
-            position:fixed; top:0; left:0; right:0; height:6px; background:#00ff00;
-            box-shadow:0 0 20px #00ff00; animation: bar 0.4s linear infinite;
-        }
-
-        @keyframes bar {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-    </style>
+    <title>Zenox - Content Creator</title>
+    <meta name="description" content="Zenox">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../Képek/zenoxkozep.png" type="image/x-icon">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <link rel="stylesheet" href="zenox.css">
+    
+   
 </head>
+
 <body>
-    <div class="blinker"></div>
-    <div class="container">
-        <h1>BÜNTETÉS ZENOXNAK!</h1>
-        <div class="subtitle">Itt a hülyeségek gyűlnek — Szégyeld el magad!</div>
-
-        <div class="ugly-box">
-            <marquee behavior="alternate" scrollamount="15">⚠️ Ha ide kerültél, akkor bizony büntetés jár! ⚠️</marquee>
-            <div class="emoji-row">🤡💩🎉🦴🌭</div>
-
-            <p style="font-weight:bold; color:#990000; font-size:1.3rem;">Szabályok (amelyeket nem tartottál be):</p>
-            <ol class="punish-list">
-                <li>Addig nem fogom visszatenni mig nem adzs full ownert...</li>
-                <li>Nagyon rosszkisfiu vagy tedd magad jobba</li>
-                <li>Ne lopd el a sütidet — a büntetés garantált.</li>
-                <li>Ha elismered: nyomj meg egy gombot és táncolj a képernyőn.</li>
-            </ol>
-
-            <p style="text-align:center; margin-top:1rem;">
-                <a href="#dance" class="big-button" onclick="doPunish(event)">Igen, megbántam! Táncolok 🎶</a>
-            </p>
-            <marquee behavior="scroll" direction="left" style="margin-top:1rem;">🏳️‍🌈 Fejezd be a rosszalkodást — itt nincs kegyelem!</marquee>
-        </div>
-
-        <p style="margin-top:1rem; font-size:0.9rem; color:#000; text-shadow:1px 1px 0 #fff;">Megjegyzés: ez az oldal kifejezetten ronda, csúf, és tele van gagyi elemekkel. Élvezd a büntetést.</p>
+    <div class="hamburger-btn" id="hamburgerBtn">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
     </div>
 
-    <div class="footer-noise"></div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <div class="side-menu" id="sideMenu">
+        <div class="menu-section">
+            <p>Version 1.12.4</p>
+            <div class="menu-title">🔗 Linkek</div>
+            <a href="https://www.tiktok.com/@zenoxgaming6927" class="menu-link" target="_blank">
+                <div class="menu-icon">🎵</div>
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.twitch.tv/zenoxgfn" class="menu-link" target="_blank">
+                <div class="menu-icon">📺</div>
+                <span>Twitch</span>
+            </a>
+            <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="menu-link" target="_blank">
+                <div class="menu-icon">🎧</div>
+                <span>Spotify</span>
+            </a>
+            <a href="https://discord.gg/JvSfynr8vH" class="menu-link" target="_blank">
+                <div class="menu-icon">💬</div>
+                <span>Discord Szerver</span>
+            </a>
+            <a href="https://www.youtube.com/@Zenox36/videos" class="menu-link" target="_blank">
+                <div class="menu-icon">🎥</div>
+                <span>YouTube</span>
+            </a>
+            <a href="../HTML/infos.html" class="menu-link">
+                <div class="menu-icon">ℹ️</div>
+                <span>Infók</span>
+            </a>
+        </div>
+
+        <div class="admin-section">
+            <div class="menu-title">🔐 Admin</div>
+            
+            <div class="admin-login" id="adminLogin">
+                <input type="email" class="admin-input" id="adminEmail" placeholder="Email">
+                <input type="password" class="admin-input" id="adminPassword" placeholder="Jelszó">
+                <button class="admin-btn" onclick="login()">Bejelentkezés</button>
+            </div>
+
+            <div class="admin-panel" id="adminPanel">
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 10px;">✅ Bejelentkezve adminként</p>
+                <label style="color: white; font-size: 0.9rem; margin-bottom: 5px;">YouTube Video ID:</label>
+                <input type="text" class="admin-input" id="videoUrlInput" placeholder="pl.: 2pv_s6ki1nA">
+                <button class="admin-btn" onclick="updateVideo()">Videó frissítése</button>
+                <button class="admin-btn logout-btn" onclick="logout()">Kijelentkezés</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="background">
+        <img src="../Képek/zenox_banner.png" alt="Background" loading="lazy">
+    </div>
+
+    <div class="container">
+        <div class="hero-banner">
+            <h1 class="hero-title">
+                USE CODE <span class="text-gradient"><i>HAMAROSAN...</i></span>
+            </h1>
+        </div>
+
+        <div class="glass-card">
+            <div class="profile-section">
+                <div class="avatar-wrapper">
+                    <div class="avatar-glow"></div>
+                    <img src="../Képek/zenoxkozep.png" alt="Zenox Avatar" class="avatar" loading="eager">
+                </div>
+
+                <div class="profile-name">
+                    <span>Zenox</span>
+                    <span>36</span>
+                </div>
+
+                <div class="username">@zenox36</div>
+
+                <div class="subscriber-count">
+                    <span></span>
+                    <span>10K Feliratkozó</span>
+                </div>
+
+                <p class="tagline">"Csak hírnévért és a pénzért csinálom!</p>
+
+                <div class="info-badges">
+                    <span>🎬 Krézi videós!</span>
+                    <span>•</span>
+                    <span>🇮🇹/🇭🇺</span>
+                </div>
+            </div>
+
+            <div class="discord-profile">
+                <div class="discord-icon"><img src="../Képek/discord_logo.png" alt="Discord" loading="lazy"></div>
+                <div>
+                    <div style="color: white; font-weight: 600;">
+                        <a href="https://discord.com/users/1091047970708930734" style="color: white; text-decoration: none;">Zenox</a>
+                    </div>
+                    <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">Discord Profile</div>
+                </div>
+            </div>
+
+            <div class="social-grid">
+                <a href="https://www.tiktok.com/@zenoxgaming6927" class="social-link">
+                    <div class="social-icon"><img src="../Képek/tiktok_logo.webp" alt="TikTok" loading="lazy"></div>
+                </a>
+                <a href="https://www.twitch.tv/zenoxgfn" class="social-link">
+                    <div class="social-icon"><img src="../Képek/77281-twitch.png" alt="Twitch" loading="lazy"></div>
+                </a>
+                <a href="https://open.spotify.com/user/31leezwukdmpowng2cch2hy5h5my" class="social-link">
+                    <div class="social-icon"><img src="../Képek/spotify.webp" alt="Spotify" loading="lazy"></div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-info">
+                    <a href="https://discord.gg/JvSfynr8vH" style="text-decoration: none;">
+                        <div class="section-icon">💬</div>
+                        <div>
+                            <div class="section-title">Discord Szerver</div>
+                            <div class="section-subtitle">Csatlakozz be a Zenox Community-be!</div>
+                        </div>
+                    </a>
+                </div>
+                <span style="font-size: 2rem;">👥</span>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="section-info" style="margin-bottom: 16px;">
+                <div class="section-icon youtube-icon">🎥</div>
+                <div>
+                    <a href="https://www.youtube.com/@Zenox36/videos" style="text-decoration: none; color: inherit;">
+                        <div class="section-title">YouTube</div>
+                        <div class="section-subtitle">Legutóbbi videóim:</div>
+                    </a>
+                </div>
+            </div>
+            <div class="video-placeholder">
+                <iframe
+                    id="youtubeIframe"
+                    width="600px"
+                    height="400px"
+                    allowfullscreen
+                    loading="lazy"
+                    style="border-radius: 16px; border: none; display: block; width: 100%; max-width: 560px; aspect-ratio: 16/9; background: #000;">
+                </iframe>
+            </div>
+        </div>
+
+        <div class="section-card">
+            <div class="music-player">
+                <div class="music-info">
+                    <div class="music-title">Made by:</div>
+                    <div class="section-subtitle">
+                        <b><a href="https://muaves.github.io" style="text-decoration: none; text-align: center;">Muavees</a></b>
+                    </div>
+                    <p>Az oldalról több infót megtalálsz <a href="../HTML/infos.html" style="text-decoration: underline; color: white;">itt!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">© <span id="year"></span> Zenox. Minden jog fenntartva!</footer>
+    <br>
 
     <script>
-        function doPunish(e) {
-            e.preventDefault();
-            const overlay = document.createElement('div');
-            overlay.style.position = 'fixed';
-            overlay.style.left = '0';
-            overlay.style.top = '0';
-            overlay.style.right = '0';
-            overlay.style.bottom = '0';
-            overlay.style.zIndex = '9999';
-            overlay.style.background = 'repeating-linear-gradient(45deg, rgba(255,0,0,0.2) 0 10px, rgba(0,255,0,0.2) 10px 20px)';
-            overlay.style.display = 'flex';
-            overlay.style.alignItems = 'center';
-            overlay.style.justifyContent = 'center';
-            overlay.innerHTML = `
-                <div style="text-align:center; font-family: 'Comic Sans MS', cursive;">
-                    <div style="font-size:4rem;">💃🕺</div>
-                    <div style="font-size:2rem; color:#fff; text-shadow:2px 2px 0 #000;">Táncolj most! (3...2...1...)</div>
-                </div>
-            `;
-            document.body.appendChild(overlay);
+        let ticking = false;
+        const cardTransforms = new WeakMap();
 
-            let flashes = 0;
-            const timer = setInterval(() => {
-                overlay.style.opacity = (flashes % 2 === 0) ? '0.4' : '1';
-                flashes++;
-                if (flashes > 8) {
-                    clearInterval(timer);
-                    overlay.remove();
-                    alert('Büntetés vége. Tanultál valamit? hat nem, próbáld újra! L');
-                }
-            }, 300);
+        function add3DTilt() {
+            const cards = document.querySelectorAll('.glass-card, .section-card, .social-link');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            const rect = card.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            
+                            const centerX = rect.width / 2;
+                            const centerY = rect.height / 2;
+                            
+                            const rotateX = ((y - centerY) / centerY) * -10;
+                            const rotateY = ((x - centerX) / centerX) * 10;
+                            
+                            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }, { passive: true });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                }, { passive: true });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            add3DTilt();
+            document.getElementById("year").textContent = new Date().getFullYear();
+            
+            const savedVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
+            loadVideo(savedVideo);
+            
+            const isAdmin = localStorage.getItem('zenoxAdmin') === 'true';
+            if (isAdmin) {
+                showAdminPanel();
+            }
+        });
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        document.addEventListener('copy', (e) => {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        document.addEventListener('cut', (e) => {
+            e.preventDefault();
+            return false;
+        }, { passive: false });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X' || e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+        }, { passive: false });
+
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('active');
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
+
+        function login() {
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (email === 'admin@zenox.com' && password === 'zenox2025') {
+                localStorage.setItem('zenoxAdmin', 'true');
+                showAdminPanel();
+                alert('✅ Sikeres bejelentkezés!');
+            } else {
+                alert('❌ Hibás email vagy jelszó!');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('zenoxAdmin');
+            hideAdminPanel();
+            alert('Kijelentkezve!');
+        }
+
+        function showAdminPanel() {
+            document.getElementById('adminLogin').style.display = 'none';
+            document.getElementById('adminPanel').classList.add('active');
+            
+            const currentVideo = localStorage.getItem('zenoxVideoId') || '2pv_s6ki1nA';
+            document.getElementById('videoUrlInput').value = currentVideo;
+        }
+
+        function hideAdminPanel() {
+            document.getElementById('adminLogin').style.display = 'flex';
+            document.getElementById('adminPanel').classList.remove('active');
+            document.getElementById('adminEmail').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        function updateVideo() {
+            const videoId = document.getElementById('videoUrlInput').value.trim();
+            
+            if (videoId) {
+                localStorage.setItem('zenoxVideoId', videoId);
+                loadVideo(videoId);
+                alert('✅ Videó frissítve!');
+            } else {
+                alert('❌ Kérlek adj meg egy video ID-t!');
+            }
+        }
+
+        function loadVideo(videoId) {
+            const iframe = document.getElementById('youtubeIframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}`;
         }
     </script>
 </body>
