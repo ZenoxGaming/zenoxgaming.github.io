@@ -10,11 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../Képek/zenoxkozep.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://muaves.com/cookies/cookie.css">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <link rel="stylesheet" href="zenox.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3K03LYDK01"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+    </script>
 </head>
 
 <body>
+    <div id="cookie-placeholder"></div>
+    <script src="https://muaves.com/cookies/cookie.js"></script>
+
     <div class="hamburger-btn" id="hamburgerBtn">
         <div class="hamburger-line"></div>
         <div class="hamburger-line"></div>
@@ -54,11 +64,12 @@
 
         <div class="admin-section">
             <div class="menu-title">🔐 Admin</div>
-          
+
             <div class="admin-login" id="adminLogin">
                 <input type="email" class="admin-input" id="adminEmail" placeholder="Email">
                 <input type="password" class="admin-input" id="adminPassword" placeholder="Jelszó">
-                <a href="https://weberettsegi.muaves.com/admin.html" style="text-decoration: none; color: inherit; text-align: center;">
+                <a href="https://weberettsegi.muaves.com/admin.html"
+                    style="text-decoration: none; color: inherit; text-align: center;">
                     <button class="admin-btn" onclick="login()">Bejelentkezés</button>
                 </a>
             </div>
@@ -149,7 +160,8 @@
                         </div>
                     </a>
                 </div>
-                <span style="font-size: 2rem;"><img src="./Képek/discord_logo.png" alt="" style="width: 90px; height: 70px;"></span>
+                <span style="font-size: 2rem;"><img src="./Képek/discord_logo.png" alt=""
+                        style="width: 90px; height: 70px;"></span>
             </div>
         </div>
         <div class="section-card">
@@ -162,7 +174,14 @@
                         </div>
                     </a>
                 </div>
-                <span style="font-size: 2rem;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="color: rgb(58, 118, 245); --darkreader-inline-color: var(--darkreader-text-3a76f5, #459af6);" width="120" height="120" viewBox="0 0 24 24"><path fill="currentColor" d="M21 4H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 6h8v12H3zm18 12h-9V6h9.003zm-1-4.5c0-.275-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5v3c0 .275.225.5.5.5h1c.275 0 .5-.225.5-.5zm-3-6c0-.275-.225-.5-.5-.5h-3c-.275 0-.5.225-.5.5v5c0 .275.225.5.5.5h3c.275 0 .5-.225.5-.5zm1.5 2.5h1c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5s.225.5.5.5m0 2h1c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5s.225.5.5.5m-5 3h3c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-3c-.275 0-.5.225-.5.5s.225.5.5.5m3 1h-3c-.275 0-.5.225-.5.5s.225.5.5.5h3c.275 0 .5-.225.5-.5s-.225-.5-.5-.5m2-8h1c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5s.225.5.5.5M10 7.5c0-.275-.225-.5-.5-.5h-5c-.275 0-.5.225-.5.5v3c0 .275.225.5.5.5h5c.275 0 .5-.225.5-.5zM9.501 14h-5c-.274 0-.5.225-.5.5s.226.5.5.5h5c.274 0 .499-.225.499-.5s-.225-.5-.499-.5m0-2h-5c-.274 0-.5.225-.5.5s.226.5.5.5h5c.274 0 .499-.225.499-.5s-.225-.5-.499-.5m0 4h-5c-.274 0-.5.225-.5.5s.226.5.5.5h5c.274 0 .499-.225.499-.5s-.225-.5-.499-.5"></path></svg></span>
+                <span style="font-size: 2rem;"><svg xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+                        style="color: rgb(58, 118, 245); --darkreader-inline-color: var(--darkreader-text-3a76f5, #459af6);"
+                        width="120" height="120" viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M21 4H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M3 6h8v12H3zm18 12h-9V6h9.003zm-1-4.5c0-.275-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5v3c0 .275.225.5.5.5h1c.275 0 .5-.225.5-.5zm-3-6c0-.275-.225-.5-.5-.5h-3c-.275 0-.5.225-.5.5v5c0 .275.225.5.5.5h3c.275 0 .5-.225.5-.5zm1.5 2.5h1c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5s.225.5.5.5m0 2h1c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5s.225.5.5.5m-5 3h3c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-3c-.275 0-.5.225-.5.5s.225.5.5.5m3 1h-3c-.275 0-.5.225-.5.5s.225.5.5.5h3c.275 0 .5-.225.5-.5s-.225-.5-.5-.5m2-8h1c.275 0 .5-.225.5-.5s-.225-.5-.5-.5h-1c-.275 0-.5.225-.5.5s.225.5.5.5M10 7.5c0-.275-.225-.5-.5-.5h-5c-.275 0-.5.225-.5.5v3c0 .275.225.5.5.5h5c.275 0 .5-.225.5-.5zM9.501 14h-5c-.274 0-.5.225-.5.5s.226.5.5.5h5c.274 0 .499-.225.499-.5s-.225-.5-.499-.5m0-2h-5c-.274 0-.5.225-.5.5s.226.5.5.5h5c.274 0 .499-.225.499-.5s-.225-.5-.499-.5m0 4h-5c-.274 0-.5.225-.5.5s.226.5.5.5h5c.274 0 .499-.225.499-.5s-.225-.5-.499-.5">
+                        </path>
+                    </svg></span>
             </div>
         </div>
 
@@ -298,7 +317,7 @@
             }
         }
 
-        
+
     </script>
 </body>
 
